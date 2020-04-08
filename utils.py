@@ -38,9 +38,9 @@ def read_corpus(path, max_length, label_dic, vocab):
     content = file.readlines()
     file.close()
     result = []
-    for line in content:
+    for index, line in enumerate(content):
         text, label = line.strip().split('|||')
-        tokens = text.split()
+        tokens = list(text)
         label = label.split()
         if len(tokens) > max_length-2:
             tokens = tokens[0:(max_length-2)]
